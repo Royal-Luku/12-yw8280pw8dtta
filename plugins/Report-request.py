@@ -1,6 +1,7 @@
 import asyncio
 import os
-from pyrogram import filters, enums, Client 
+from pyrogram import Client
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 admin = InlineKeyboardMarkup([[InlineKeyboardButton("‼️ Mark as read ‼️", callback_data="close")]])
 
