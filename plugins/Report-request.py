@@ -2,7 +2,9 @@ import asyncio
 import os
 from pyrogram import filters, enums, Client 
 
-@Client.on_message((filters.command(["report", "request"]) | filters.regex("@admins") | filters.regex("@admin")) & filters.group)
+admin = InlineKeyboardMarkup([[InlineKeyboardButton("‼️ Mark as read ‼️", callback_data="close")]])
+
+@Client.on_message((filters.command(["request"]) | filters.regex("@request")) & filters.group)
 async def report_user(bot, message):
     if message.reply_to_message:
         chat_id = message.chat.id
@@ -19,7 +21,8 @@ async def report_user(bot, message):
                     await reported_post.reply_text(
                         text=report,
                         chat_id=admin.user.id,
-                        disable_web_page_preview=True
+                        disable_web_page_preview=True,
+                        reply_markup=admin
                     )
                     success = True
                 except:
@@ -27,4 +30,5 @@ async def report_user(bot, message):
             else: # Skipping Bots
                 pass
         if success:
-            await message.reply_text("Report has been successfully sent to the administrators.")
+            await message.reply_text("**‼️ Movie Request Send Successfully ‼️")
+            
