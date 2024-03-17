@@ -3,7 +3,7 @@ import os
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-admin = InlineKeyboardMarkup([[InlineKeyboardButton("‼️ Mark as read ‼️", callback_data="close")]])
+#admin = InlineKeyboardMarkup([[InlineKeyboardButton("‼️ Mark as read ‼️", callback_data="close")]])
 
 @Client.on_message((filters.command(["request"]) | filters.regex("@request")) & filters.group)
 async def report_user(bot, message):
@@ -23,7 +23,7 @@ async def report_user(bot, message):
                         text=report,
                         chat_id=admin.user.id,
                         disable_web_page_preview=True,
-                        reply_markup=admin
+                        #reply_markup=admin
                     )
                     success = True
                 except:
