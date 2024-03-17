@@ -97,7 +97,7 @@ SEASONS = ["Season 1" , "Season 2" , "Season 3" , "Season 4", "Season 5" , "Seas
 
 
 # Online Stream and Download
-PORT = int(environ.get('PORT', 8080))
+PORT = int(environ.get('PORT', 3000))
 NO_PORT = bool(environ.get('NO_PORT', False))
 APP_NAME = None
 if 'DYNO' in environ:
