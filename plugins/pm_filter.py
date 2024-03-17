@@ -1251,15 +1251,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
             username =  query.from_user.mention 
 
             log_msg = await client.send_cached_media(
-                chat_id=LOG_CHANNEL,
+                chat_id=STREAM_LOG,
                 file_id=file_id,
             )
             fileName = {quote_plus(get_name(log_msg))}
             lazy_stream = f"{URL}watch/{str(log_msg.id)}/?hash={get_hash(log_msg)}"
             lazy_download = f"{URL}{str(log_msg.id)}/?hash={get_hash(log_msg)}"
 
-            xo = await query.message.reply_text(f'🔐')
-            await asyncio.sleep(1)
+            xo = await query.message.reply_text(f'⚡')
+            await asyncio.sleep(2.7)
             await xo.delete()
 
             await log_msg.reply_text(
